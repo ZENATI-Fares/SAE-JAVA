@@ -1,0 +1,39 @@
+public class Lot{
+    private String nomProduit;
+    private int prixAchat;
+    private int qteProduit;
+    private int prixRevente;
+    
+    public lot(String nomProduit, int prixAchat, int qteProduit, int prixRevente){
+        String nomProduit = nomProduit;
+        int prixAchat = prixAchat;
+        int qteProduit = qteProduit;
+        int prixRevente = prixRevente;
+
+    }
+
+    public String getNomProduit(){
+        return this.nomProduit;
+    }
+
+    public int getPrixAchat(){
+        return this.prixAchat
+    }
+
+    public int getPrixRevente(){
+        return this.prixRevente
+    }
+
+    public int getQteProduit(){
+        return this.qteProduit;
+
+    public int getBenefice(){
+        return this.prixRevente - this.prixAchat;
+    }
+    }
+
+
+
+
+
+}
