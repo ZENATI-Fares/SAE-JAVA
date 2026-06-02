@@ -22,8 +22,15 @@ public class Backtraking {
     }
 
     public void chercherMeilleureCombinaison(int indice, double volumeRestant, double beneficeRetenu, ArrayList <Lot> combinaisonLotRetenu){
+        if (indice > this.listLot.size()){
+            return;
+        }
+        Lot lot = this.listLot.get(indice);
+        if (lot.getVolume() <= volumeRestant){
+            combinaisonLotRetenu.add(lot);
+            indice +=1 ;
 
-
+        }
     }
 }
 
