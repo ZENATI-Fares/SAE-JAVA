@@ -5,10 +5,10 @@ public class Lot{
     private int prixRevente;
     
     public lot(String nomProduit, int prixAchat, int qteProduit, int prixRevente){
-        String nomProduit = nomProduit;
-        int prixAchat = prixAchat;
-        int qteProduit = qteProduit;
-        int prixRevente = prixRevente;
+        String nomProduit = this.nomProduit;
+        int prixAchat = this.prixAchat;
+        int qteProduit = this.qteProduit;
+        int prixRevente = this.prixRevente;
 
     }
 
@@ -29,6 +29,15 @@ public class Lot{
 
     public int getBenefice(){
         return this.prixRevente - this.prixAchat;
+    }
+
+    /* instanciation d'une méthode de validation pour la méthode principal */
+    public boolean est_Valide(int budgetRestant, int volumeCamionRestant){
+        if ((this.prixAchat > budgetRestant)||(this.qteProduit> volumeCamionRestant)){
+            return false;
+        }
+        return true;
+
     }
     }
 
