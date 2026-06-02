@@ -1,48 +1,55 @@
 public class Lot{
-    private String nomProduit;
+    private int idProduit;
     private int prixAchat;
     private int volume;
     private int prixRevente;
     
-    public lot(String nomProduit, int prixAchat, int volume, int prixRevente){
-        String nomProduit = this.nomProduit;
-        int prixAchat = this.prixAchat;
-        int qteProduit = this.volume;
-        int prixRevente = this.prixRevente;
+    public Lot(int idProduit, int prixAchat, int volume, int prixRevente){
+        this.idProduit = idProduit;
+        this.prixAchat = prixAchat;
+        this.volume = volume;
+        this.prixRevente = prixRevente;
 
     }
 
-    public String getNomProduit(){
-        return this.nomProduit;
+    public int getIdProduit(){
+        return this.idProduit;
     }
 
     public int getPrixAchat(){
-        return this.prixAchat
+        return this.prixAchat;
     }
 
     public int getPrixRevente(){
-        return this.prixRevente
+        return this.prixRevente;
     }
 
     public int getVolume(){
         return this.volume;
+    }
 
     public int getBenefice(){
         return this.prixRevente - this.prixAchat;
     }
 
+    public float getRatio(){
+        return (float) this.getBenefice()/this.getVolume();
+    }
+
     /* instanciation d'une méthode de validation pour la méthode principal */
     public boolean est_Valide(int budgetRestant, int volumeCamionRestant){
-        if ((this.prixAchat > budgetRestant)||(this.qteProduit> volumeCamionRestant)){
+        if ((this.prixAchat > budgetRestant)||(this.volume> volumeCamionRestant)){
             return false;
         }
         return true;
 
     }
+    public Lot compareTo(Lot leLot){
+        if (leLot.getRatio() > this.getRatio()){
+            return leLot;
+        }
+        else 
+            return this;
+        
     }
-
-
-
-
-
-}
+    }
