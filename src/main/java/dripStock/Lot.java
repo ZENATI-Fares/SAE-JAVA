@@ -25,10 +25,6 @@ public class Lot{
         return this.benef;
 
     }
-    public float ratio(){
-        return  (float) this.benef / this.volume;
-
-    }
 
 
 

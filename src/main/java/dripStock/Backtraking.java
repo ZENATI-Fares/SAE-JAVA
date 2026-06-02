@@ -25,6 +25,12 @@ public class Backtraking {
         if (indice > this.listLot.size()){
             return;
         }
+        if (beneficeRetenu > beneficeMax){
+            beneficeMax = beneficeRetenu;
+            combinaisonsBeneficeMax = new ArrayList<Lot>(combinaisonLotRetenu);
+        }
+        chercherMeilleureCombinaison(indice + 1, volumeRestant,beneficeRetenu,combinaisonLotRetenu);
+
         Lot lot = this.listLot.get(indice);
         if (lot.getVolume() <= volumeRestant){
             combinaisonLotRetenu.add(lot);
@@ -32,8 +38,6 @@ public class Backtraking {
             beneficeRetenu += lot.getBenef();
             volumeRestant -= lot.getVolume();
             chercherMeilleureCombinaison(indice, volumeRestant,beneficeRetenu,combinaisonLotRetenu);
-
-
         }
     }
 }
