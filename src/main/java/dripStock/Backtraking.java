@@ -9,9 +9,10 @@ public class Backtraking {
     double beneficeMax;
     ArrayList <Lot> combinaisonsBeneficeMax;
     public Backtraking(ArrayList <Lot> listeLots, double volumeVehicule){
+        listLot = listeLots;
         beneficeMax = 0.0;
         combinaisonsBeneficeMax = new ArrayList<Lot>();
-        listLot = new ArrayList<Lot>();
+
     }
     public double getBeneficeMax(){
         return this.beneficeMax;
@@ -22,22 +23,25 @@ public class Backtraking {
     }
 
     public void chercherMeilleureCombinaison(int indice, double volumeRestant, double beneficeRetenu, ArrayList <Lot> combinaisonLotRetenu){
-        if (indice > this.listLot.size()){
+        if (indice >= this.listLot.size()){
+            if (beneficeRetenu > beneficeMax){
+                beneficeMax = beneficeRetenu;
+                combinaisonsBeneficeMax = new ArrayList<Lot>(combinaisonLotRetenu);
+            }
+
             return;
         }
-        if (beneficeRetenu > beneficeMax){
-            beneficeMax = beneficeRetenu;
-            combinaisonsBeneficeMax = new ArrayList<Lot>(combinaisonLotRetenu);
-        }
+
         chercherMeilleureCombinaison(indice + 1, volumeRestant,beneficeRetenu,combinaisonLotRetenu);
 
         Lot lot = this.listLot.get(indice);
         if (lot.getVolume() <= volumeRestant){
+
             combinaisonLotRetenu.add(lot);
-            indice +=1 ;
-            beneficeRetenu += lot.getBenef();
-            volumeRestant -= lot.getVolume();
-            chercherMeilleureCombinaison(indice, volumeRestant,beneficeRetenu,combinaisonLotRetenu);
+
+
+            chercherMeilleureCombinaison(indice +1, volumeRestant - lot.getVolume(),beneficeRetenu +  lot.getBenef(),combinaisonLotRetenu);
+            combinaisonLotRetenu.remove(combinaisonLotRetenu.size() - 1);
         }
     }
 }
