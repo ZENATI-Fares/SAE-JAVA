@@ -29,6 +29,10 @@ public class Backtraking {
         if (lot.getVolume() <= volumeRestant){
             combinaisonLotRetenu.add(lot);
             indice +=1 ;
+            beneficeRetenu += lot.getBenef();
+            volumeRestant -= lot.getVolume();
+            chercherMeilleureCombinaison(indice, volumeRestant,beneficeRetenu,combinaisonLotRetenu);
+
 
         }
     }
