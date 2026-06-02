@@ -21,7 +21,8 @@ public class Backtraking {
         return combinaisonsBeneficeMax;
     }
 
-    public void chercherMeilleureCombinaison(int indice, double volumeRestant, double beneficeRetenu){
+    public void chercherMeilleureCombinaison(int indice, double volumeRestant, double beneficeRetenu, ArrayList <Lot> combinaisonLotRetenu){
+
 
     }
 }
